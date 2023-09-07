@@ -5,6 +5,6 @@
 
     memset((char *)0x0, 1, 100);
 
-    printf (" Initial value of n (bad) is %d \n", n);
+    printf (" Initial value of n is %d \n", n);
     return 0;
   }
