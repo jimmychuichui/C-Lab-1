@@ -7,9 +7,14 @@
 
 struct list *create_list()
 {
-  struct list *p_list;
+  struct list *p_list = (struct list *)malloc(sizeof(struct list));
+  if (p_list == NULL)
+    return NULL;
+  /*
   if ((p_list = (struct list *)malloc(sizeof(struct list))) == 0)
     return NULL;
+  */
+
   p_list->first = NULL;
   p_list->last = NULL;
   return p_list;
@@ -34,9 +39,10 @@ void delete_list(struct list *l)
    Return 0 on failure and 1 on success. */
 int insert_start(struct list *l, int val)
 {
-  struct node *n;
-  if ((n = (struct node *)malloc(sizeof(struct node))) == 0)
+  struct node *n = malloc(sizeof(struct node));
+  if (n == NULL)
     return 0;
+  
   n->val = val;
   n->prev = NULL;
 
